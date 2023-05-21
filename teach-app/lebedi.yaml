@@ -1,0 +1,9 @@
+train: ./lebedi/train/images
+val: ./lebedi/valid/images
+test:
+
+# Classes
+names:
+  0: "лебедь-шипун"
+  1: "лебедь-кликун"
+  2: "малый лебедь"

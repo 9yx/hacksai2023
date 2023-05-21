@@ -1,0 +1,90 @@
+{
+  "name": "swans_classifier",
+  "version": "0.1.1",
+  "license": "MIT",
+  "author": {
+    "name": "Rustam Salahutdinov",
+    "email": "SalahutdinovRS@outlook.com"
+  },
+  "description": "My fantastic Electron app",
+  "private": true,
+  "homepage": "./",
+  "main": "public/electron.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "dev": "concurrently -k \"BROWSER=none npm start\" \"npm:electron\"",
+    "electron": "wait-on tcp:3000 && electron --dev .",
+    "electron:package:mac": "npm build && electron-builder -m -c.extraMetadata.main=build/electron.js",
+    "electron:package:win": "npm build && electron-builder -w -c.extraMetadata.main=build/electron.js",
+    "electron:package:linux": "npm run build && electron-builder -l -c.extraMetadata.main=build/electron.js"
+  },
+  "dependencies": {
+    "@ant-design/icons": "5.1.0",
+    "@testing-library/jest-dom": "5.16.5",
+    "@testing-library/react": "13.4.0",
+    "@testing-library/user-event": "13.5.0",
+    "antd": "5.5.0",
+    "onnxruntime-node": "1.14.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-scripts": "5.0.1",
+    "sharp": "0.32.1",
+    "web-vitals": "2.1.4"
+  },
+  "devDependencies": {
+    "concurrently": "8.0.1",
+    "electron": "24.3.1",
+    "electron-builder": "^23.6.0",
+    "electron-updater": "5.3.0",
+    "wait-on": "7.0.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "build": {
+    "asar": false,
+    "appId": "swan.cls",
+    "productName": "swan-cls",
+    "extraFiles": {
+      "from": "./build",
+      "to": "./resources/app"
+    },
+    "directories": {
+      "app": "./",
+      "output": "dist"
+    },
+    "files": [
+      "package.json",
+      "app/**/*",
+      "node_modules"
+    ],
+    "linux": {
+      "desktop": {
+        "StartupNotify": "false",
+        "Encoding": "UTF-8",
+        "MimeType": "x-scheme-handler/deeplink"
+      },
+      "target": [
+        "AppImage"
+      ]
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.App {
+  height: 100%;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+}
+
+.UploadHeader {
+  padding: 5px 20px;
+  height: 80px;
+  overflow: auto;
+  background: #2e3268;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo > .title {
+  font-weight: bold;
+  color: white;
+}
+
+.UploadContent {
+  padding: 20px;
+  height: calc(100vh - 140px);
+  overflow: auto;
+  background: white;
+}
+
+.UploadFooter {
+  background: white;
+  border-top: solid 1px #dee2e6;
+  padding: 0 20px;
+  height: 60px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
